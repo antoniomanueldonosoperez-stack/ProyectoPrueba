@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mariadb:11
+    container_name: proyectoprueba-db
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_DATABASE: proyectoprueba
+      MARIADB_USER: daw
+      MARIADB_PASSWORD: daw1234
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
